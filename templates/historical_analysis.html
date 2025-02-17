@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Historical Analysis</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='historical.css') }}"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1>Historical Analysis</h1>
+        <nav>
+          <ul>
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <div class="container">
+        <h2>Your Historical Analysis</h2>
+        <div class="historical-list">
+          {% for analysis in analyses %}
+          <div class="analysis-item">
+            <p><strong>Date:</strong> {{ analysis.analysis_date }}</p>
+            <p><strong>Text:</strong> {{ analysis.text }}</p>
+            <p><strong>Stress Label:</strong> {{ analysis.stress_label }}</p>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,140 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #e0e7ff 0%, #f0f4ff 100%);
+  color: #333;
+  line-height: 1.6;
+}
+
+header {
+  background-color: #3f51b5;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+header nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+}
+
+header nav ul li {
+  margin: 0 15px;
+}
+
+header nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
+}
+
+header nav ul li a:hover {
+  color: #e0e7ff;
+}
+
+main {
+  padding: 50px 0;
+}
+
+.container {
+  width: 80%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.historical-list {
+  margin-top: 30px;
+}
+
+.analysis-item {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.analysis-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.analysis-item p {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.analysis-item p strong {
+  color: #3f51b5;
+}
+
+.analysis-results h2,
+.analysis-chart h2 {
+  color: #3f51b5;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+}
+
+.analysis-chart {
+  background-color: #e0e7ff;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.analysis-chart canvas {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+.analysis-results {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.analysis-results p {
+  color: #333;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+.analysis-chart {
+  background-color: #e0e7ff;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.analysis-chart h2 {
+  color: #3f51b5;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+}
+
+.analysis-chart canvas {
+  width: 100%;
+  height: 400px;
+  max-width: 100%;
+  height: auto;
+}

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Mental Health Resources</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='resources.css') }}"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1>Mental Health Resources</h1>
+        <nav>
+          <ul>
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <section class="instagram-section">
+        <h2 class="section-heading">Latest Post about Mental Health</h2>
+
+        <div class="bookmark-container">
+          <div class="strip">
+            <h1 class="cont_head">Latest Posts</h1>
+          </div>
+          <div class="instagram-posts">
+            <div class="instagram-post">
+              <blockquote
+                class="instagram-media"
+                data-instgrm-permalink="https://www.instagram.com/p/CcqWRzsOoSv/?igsh=MWVzbjR3eXo4NzBsNA=="
+                data-instgrm-version="14"
+              ></blockquote>
+            </div>
+            <div class="instagram-post">
+              <blockquote
+                class="instagram-media"
+                data-instgrm-permalink="https://www.instagram.com/p/C_82UgVNLw8/?igsh=MXA4NW9lNXF4bGtnZQ=="
+                data-instgrm-version="14"
+              ></blockquote>
+            </div>
+            <div class="instagram-post">
+              <blockquote
+                class="instagram-media"
+                data-instgrm-permalink="https://www.instagram.com/p/C_5fnsEMiXn/?igsh=MWRzb2ltZTZpNTNpeg=="
+                data-instgrm-version="14"
+              ></blockquote>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="resource-section">
+        <h2 class="section-heading">Top Mental Health Resources</h2>
+
+        <ul class="resource-list">
+          <li class="resource-item">
+            <a href="https://www.mentalhealth.gov/" target="_blank"
+              >MentalHealth.gov</a
+            >
+            <p>
+              A comprehensive guide to mental health topics, including
+              depression, anxiety, and substance use. You can also access
+              information about treatments and recovery options.
+            </p>
+          </li>
+          <li class="resource-item">
+            <a href="https://www.who.int/mental_health/en/" target="_blank"
+              >World Health Organization: Mental Health</a
+            >
+            <p>
+              The WHO provides global information on mental health conditions
+              and strategies for promoting mental well-being. This is a valuable
+              resource for international perspectives and policies.
+            </p>
+          </li>
+          <li class="resource-item">
+            <a href="https://www.nimh.nih.gov/health/topics" target="_blank"
+              >National Institute of Mental Health</a
+            >
+            <p>
+              Find up-to-date research, resources, and information on a variety
+              of mental health conditions, from anxiety disorders to PTSD. The
+              NIMH also offers educational resources and clinical trial
+              information.
+            </p>
+          </li>
+          <li class="resource-item">
+            <a href="https://www.headspace.com/" target="_blank">Headspace</a>
+            <p>
+              Headspace is a mindfulness and meditation app that offers guided
+              meditation to reduce stress and improve focus. It's a great way to
+              incorporate mindfulness into your daily routine.
+            </p>
+          </li>
+          <li class="resource-item">
+            <a href="https://www.7cups.com/" target="_blank">7 Cups</a>
+            <p>
+              Offering free emotional support and counseling, 7 Cups connects
+              users with trained listeners and licensed therapists, providing an
+              outlet for those who may feel isolated.
+            </p>
+          </li>
+          <li class="resource-item">
+            <a href="https://www.crisistextline.org/" target="_blank"
+              >Crisis Text Line</a
+            >
+            <p>
+              Crisis Text Line offers free, 24/7 support for those in crisis.
+              Text HOME to 741741 to connect with a crisis counselor. They
+              provide confidential support for any type of mental health
+              emergency.
+            </p>
+          </li>
+          <li class="resource-item">
+            <a href="https://www.samaritans.org/" target="_blank">Samaritans</a>
+            <p>
+              A UK-based charity, Samaritans offers a 24/7 helpline for anyone
+              in distress. They provide free support through their hotline and
+              email services for those struggling with emotional pain.
+            </p>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <script async src="//www.instagram.com/embed.js"></script>
+  </body>
+</html>

@@ -1,0 +1,142 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #e0e7ff 0%, #f0f4ff 100%);
+  color: #333;
+}
+
+header {
+  background-color: #3f51b5;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+header nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+}
+
+header nav ul li {
+  margin: 0 15px;
+}
+
+header nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+header nav ul li a:hover {
+  text-decoration: underline;
+}
+
+.main-content {
+  padding: 50px 0;
+}
+
+.container {
+  width: 80%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-heading {
+  font-size: 2rem;
+  color: #3f51b5;
+  text-align: center;
+  margin-bottom: 30px;
+  animation: fadeInDown 1s ease-out;
+}
+
+.resource-section {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  margin-bottom: 40px;
+  animation: fadeInUp 1s ease-out;
+}
+
+.resource-list {
+  list-style: none;
+}
+
+.resource-item {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: #333;
+  line-height: 1.6;
+}
+
+.resource-item a {
+  color: #3f51b5;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.resource-item a:hover {
+  color: #2c3e8e;
+}
+
+.instagram-section {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  margin-bottom: 40px;
+  animation: fadeInUp 1.2s ease-out;
+}
+
+.instagram-posts {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.instagram-post {
+  width: 30%;
+}
+
+.cont_head {
+  color: #3f51b5;
+  font-size: 1.5rem;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

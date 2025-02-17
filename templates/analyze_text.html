@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Analyze Text</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='analyse.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='community.css') }}"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1 style="color: white">Analyze Text</h1>
+        <nav>
+          <ul>
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div class="container">
+      <form action="{{ url_for('analyze_text') }}" method="POST">
+        <label for="text">Enter your text:</label>
+        <textarea id="text" name="text" rows="4" cols="50"></textarea>
+        <button type="submit">Analyze</button>
+      </form>
+    </div>
+  </body>
+</html>

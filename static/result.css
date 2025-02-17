@@ -1,0 +1,88 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #e0e7ff 0%, #f0f4ff 100%);
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  max-width: 600px;
+  width: 90%;
+  text-align: center;
+  animation: fadeIn 1s ease-out;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #3f51b5;
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 1.25rem;
+  margin-bottom: 20px;
+  line-height: 1.6;
+  color: #555;
+}
+
+strong {
+  color: #333;
+}
+
+p strong {
+  font-size: 1.2rem;
+}
+
+.stress {
+  color: #ff4c4c;
+  background-color: rgba(255, 76, 76, 0.1);
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.no-stress {
+  color: #4caf50;
+  background-color: rgba(76, 175, 80, 0.1);
+  border-radius: 8px;
+  padding: 10px;
+}
+
+a {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 24px;
+  background-color: #3f51b5;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+  font-size: 1.1rem;
+}
+
+a:hover {
+  background-color: #2c3e8e;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

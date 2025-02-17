@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Community Chat</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='community.css') }}"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1>Community Chat</h1>
+        <nav>
+          <ul>
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+        <div class="chat-container">
+          <div class="messages">
+            {% for message in messages %}
+            <div class="message">
+              <span class="username">{{ message.username }}</span>:
+              <span class="content">{{ message.message }}</span>
+              <span class="timestamp"
+                >{{ message.timestamp.strftime('%Y-%m-%d %H:%M:%S') }}</span
+              >
+            </div>
+            {% endfor %}
+          </div>
+          <form method="POST" class="chat-input">
+            <input
+              type="text"
+              name="message"
+              placeholder="Type your message..."
+              required
+            />
+            <button type="submit">Send</button>
+          </form>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container">
+        <p>
+          Note that this discussion is public. Make sure <b>not</b> to share
+          sensitive or personal information.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
