@@ -3,131 +3,245 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Mental Health Resources</title>
+    <title>Mental Health Resources - Mental Health Manager</title>
     <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
       rel="stylesheet"
-      href="{{ url_for('static', filename='resources.css') }}"
     />
   </head>
-  <body>
-    <header>
-      <div class="container">
-        <h1>Mental Health Resources</h1>
-        <nav>
-          <ul>
-            <li><a href="{{ url_for('index') }}">Home</a></li>
-          </ul>
-        </nav>
+  <body class="flex flex-col min-h-screen bg-gray-100 text-gray-800">
+    <header
+      class="bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg"
+    >
+      <div class="container mx-auto px-6 py-4">
+        <div class="flex justify-between items-center">
+          <a
+            href="{{ url_for('index') }}"
+            class="transition-all ease-in-out duration-300 hover:text-blue-200"
+            ><h1 class="text-3xl font-bold tracking-tight">
+              Mental Health Manager
+            </h1></a
+          >
+          <nav>
+            <ul class="flex space-x-6">
+              <li>
+                <a
+                  href="{{ url_for('index') }}"
+                  class="transition-all ease-in-out duration-300 hover:text-blue-200"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a
+                  href="{{ url_for('analyze_text') }}"
+                  class="transition-all ease-in-out duration-300 hover:text-blue-200"
+                  >Analyze Text</a
+                >
+              </li>
+              <li>
+                <a
+                  href="{{ url_for('historical_analysis') }}"
+                  class="transition-all ease-in-out duration-300 hover:text-blue-200"
+                  >History</a
+                >
+              </li>
+              <li>
+                <a
+                  href="{{ url_for('community') }}"
+                  class="transition-all ease-in-out duration-300 hover:text-blue-200"
+                  >Community</a
+                >
+              </li>
+              <li>
+                <a
+                  href="{{ url_for('resources') }}"
+                  class="transition-all ease-in-out duration-300 hover:text-blue-200"
+                  >Resources</a
+                >
+              </li>
+              {% if 'username' in session %}
+              <li>
+                <a
+                  href="{{ url_for('logout') }}"
+                  class="transition-all ease-in-out duration-300 hover:text-blue-200"
+                  >Logout ({{ session['username'] }})</a
+                >
+              </li>
+              {% else %}
+              <li>
+                <a
+                  href="{{ url_for('login') }}"
+                  class="transition-all ease-in-out duration-300 hover:text-blue-200"
+                  >Login</a
+                >
+              </li>
+              <li>
+                <a
+                  href="{{ url_for('register') }}"
+                  class="transition-all ease-in-out duration-300 hover:text-blue-200"
+                  >Register</a
+                >
+              </li>
+              {% endif %}
+            </ul>
+          </nav>
+        </div>
       </div>
     </header>
 
-    <main class="main-content">
-      <section class="instagram-section">
-        <h2 class="section-heading">Latest Post about Mental Health</h2>
-
-        <div class="bookmark-container">
-          <div class="strip">
-            <h1 class="cont_head">Latest Posts</h1>
+    <main class="flex-grow container mx-auto px-6 py-12">
+      <h1 class="text-3xl font-bold text-center text-blue-600 mb-8">
+        Mental Health Resources
+      </h1>
+      <div class="space-y-12">
+        <section>
+          <h2 class="text-2xl font-semibold text-gray-800 mb-4">
+            Latest Post about Mental Health
+          </h2>
+          <div class="bg-white p-6 rounded-lg shadow-lg">
+            <h3 class="text-xl font-bold mb-4">Latest Posts</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div class="instagram-post">
+                <blockquote
+                  class="instagram-media"
+                  data-instgrm-permalink="https://www.instagram.com/p/CcqWRzsOoSv/?igsh=MWVzbjR3eXo4NzBsNA=="
+                  data-instgrm-version="14"
+                ></blockquote>
+              </div>
+              <div class="instagram-post">
+                <blockquote
+                  class="instagram-media"
+                  data-instgrm-permalink="https://www.instagram.com/p/C_82UgVNLw8/?igsh=MXA4NW9lNXF4bGtnZQ=="
+                  data-instgrm-version="14"
+                ></blockquote>
+              </div>
+              <div class="instagram-post">
+                <blockquote
+                  class="instagram-media"
+                  data-instgrm-permalink="https://www.instagram.com/p/C_5fnsEMiXn/?igsh=MWRzb2ltZTZpNTNpeg=="
+                  data-instgrm-version="14"
+                ></blockquote>
+              </div>
+            </div>
           </div>
-          <div class="instagram-posts">
-            <div class="instagram-post">
-              <blockquote
-                class="instagram-media"
-                data-instgrm-permalink="https://www.instagram.com/p/CcqWRzsOoSv/?igsh=MWVzbjR3eXo4NzBsNA=="
-                data-instgrm-version="14"
-              ></blockquote>
-            </div>
-            <div class="instagram-post">
-              <blockquote
-                class="instagram-media"
-                data-instgrm-permalink="https://www.instagram.com/p/C_82UgVNLw8/?igsh=MXA4NW9lNXF4bGtnZQ=="
-                data-instgrm-version="14"
-              ></blockquote>
-            </div>
-            <div class="instagram-post">
-              <blockquote
-                class="instagram-media"
-                data-instgrm-permalink="https://www.instagram.com/p/C_5fnsEMiXn/?igsh=MWRzb2ltZTZpNTNpeg=="
-                data-instgrm-version="14"
-              ></blockquote>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="resource-section">
-        <h2 class="section-heading">Top Mental Health Resources</h2>
+        </section>
 
-        <ul class="resource-list">
-          <li class="resource-item">
-            <a href="https://www.mentalhealth.gov/" target="_blank"
-              >MentalHealth.gov</a
-            >
-            <p>
-              A comprehensive guide to mental health topics, including
-              depression, anxiety, and substance use. You can also access
-              information about treatments and recovery options.
-            </p>
-          </li>
-          <li class="resource-item">
-            <a href="https://www.who.int/mental_health/en/" target="_blank"
-              >World Health Organization: Mental Health</a
-            >
-            <p>
-              The WHO provides global information on mental health conditions
-              and strategies for promoting mental well-being. This is a valuable
-              resource for international perspectives and policies.
-            </p>
-          </li>
-          <li class="resource-item">
-            <a href="https://www.nimh.nih.gov/health/topics" target="_blank"
-              >National Institute of Mental Health</a
-            >
-            <p>
-              Find up-to-date research, resources, and information on a variety
-              of mental health conditions, from anxiety disorders to PTSD. The
-              NIMH also offers educational resources and clinical trial
-              information.
-            </p>
-          </li>
-          <li class="resource-item">
-            <a href="https://www.headspace.com/" target="_blank">Headspace</a>
-            <p>
-              Headspace is a mindfulness and meditation app that offers guided
-              meditation to reduce stress and improve focus. It's a great way to
-              incorporate mindfulness into your daily routine.
-            </p>
-          </li>
-          <li class="resource-item">
-            <a href="https://www.7cups.com/" target="_blank">7 Cups</a>
-            <p>
-              Offering free emotional support and counseling, 7 Cups connects
-              users with trained listeners and licensed therapists, providing an
-              outlet for those who may feel isolated.
-            </p>
-          </li>
-          <li class="resource-item">
-            <a href="https://www.crisistextline.org/" target="_blank"
-              >Crisis Text Line</a
-            >
-            <p>
-              Crisis Text Line offers free, 24/7 support for those in crisis.
-              Text HOME to 741741 to connect with a crisis counselor. They
-              provide confidential support for any type of mental health
-              emergency.
-            </p>
-          </li>
-          <li class="resource-item">
-            <a href="https://www.samaritans.org/" target="_blank">Samaritans</a>
-            <p>
-              A UK-based charity, Samaritans offers a 24/7 helpline for anyone
-              in distress. They provide free support through their hotline and
-              email services for those struggling with emotional pain.
-            </p>
-          </li>
-        </ul>
-      </section>
+        <section>
+          <h2 class="text-2xl font-semibold text-gray-800 mb-4">
+            Top Mental Health Resources
+          </h2>
+          <div class="bg-white p-6 rounded-lg shadow-lg">
+            <ul class="space-y-6">
+              <li class="resource-item">
+                <a
+                  href="https://www.mentalhealth.gov/"
+                  target="_blank"
+                  class="text-blue-600 font-semibold hover:underline"
+                  >MentalHealth.gov</a
+                >
+                <p class="mt-2 text-gray-700">
+                  A comprehensive guide to mental health topics, including
+                  depression, anxiety, and substance use. You can also access
+                  information about treatments and recovery options.
+                </p>
+              </li>
+              <li class="resource-item">
+                <a
+                  href="https://www.who.int/mental_health/en/"
+                  target="_blank"
+                  class="text-blue-600 font-semibold hover:underline"
+                  >World Health Organization: Mental Health</a
+                >
+                <p class="mt-2 text-gray-700">
+                  The WHO provides global information on mental health
+                  conditions and strategies for promoting mental well-being.
+                  This is a valuable resource for international perspectives and
+                  policies.
+                </p>
+              </li>
+              <li class="resource-item">
+                <a
+                  href="https://www.nimh.nih.gov/health/topics"
+                  target="_blank"
+                  class="text-blue-600 font-semibold hover:underline"
+                  >National Institute of Mental Health</a
+                >
+                <p class="mt-2 text-gray-700">
+                  Find up-to-date research, resources, and information on a
+                  variety of mental health conditions, from anxiety disorders to
+                  PTSD. The NIMH also offers educational resources and clinical
+                  trial information.
+                </p>
+              </li>
+              <li class="resource-item">
+                <a
+                  href="https://www.headspace.com/"
+                  target="_blank"
+                  class="text-blue-600 font-semibold hover:underline"
+                  >Headspace</a
+                >
+                <p class="mt-2 text-gray-700">
+                  Headspace is a mindfulness and meditation app that offers
+                  guided meditation to reduce stress and improve focus. It's a
+                  great way to incorporate mindfulness into your daily routine.
+                </p>
+              </li>
+              <li class="resource-item">
+                <a
+                  href="https://www.7cups.com/"
+                  target="_blank"
+                  class="text-blue-600 font-semibold hover:underline"
+                  >7 Cups</a
+                >
+                <p class="mt-2 text-gray-700">
+                  Offering free emotional support and counseling, 7 Cups
+                  connects users with trained listeners and licensed therapists,
+                  providing an outlet for those who may feel isolated.
+                </p>
+              </li>
+              <li class="resource-item">
+                <a
+                  href="https://www.crisistextline.org/"
+                  target="_blank"
+                  class="text-blue-600 font-semibold hover:underline"
+                  >Crisis Text Line</a
+                >
+                <p class="mt-2 text-gray-700">
+                  Crisis Text Line offers free, 24/7 support for those in
+                  crisis. Text HOME to 741741 to connect with a crisis
+                  counselor. They provide confidential support for any type of
+                  mental health emergency.
+                </p>
+              </li>
+              <li class="resource-item">
+                <a
+                  href="https://www.samaritans.org/"
+                  target="_blank"
+                  class="text-blue-600 font-semibold hover:underline"
+                  >Samaritans</a
+                >
+                <p class="mt-2 text-gray-700">
+                  A UK-based charity, Samaritans offers a 24/7 helpline for
+                  anyone in distress. They provide free support through their
+                  hotline and email services for those struggling with emotional
+                  pain.
+                </p>
+              </li>
+            </ul>
+          </div>
+        </section>
+      </div>
     </main>
+
+    <footer
+      class="mt-auto bg-gradient-to-r from-gray-800 to-gray-700 text-white py-4"
+    >
+      <div class="container mx-auto px-6 text-center">
+        <p class="text-lg">
+          Created for Summer Internship Project - AIML-A - Batch 6
+        </p>
+      </div>
+    </footer>
 
     <script async src="//www.instagram.com/embed.js"></script>
   </body>

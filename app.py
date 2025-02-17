@@ -89,7 +89,7 @@ def historical_analysis():
     if 'username' not in session:
         return redirect(url_for('login'))
    
-    analyses = text_collection.find({"username": session['username']}).sort("analysis_date")
+    analyses = text_collection.find({"username": session['username']}).sort("analysis_date", -1)
     return render_template('historical_analysis.html', analyses=analyses)
 
 
