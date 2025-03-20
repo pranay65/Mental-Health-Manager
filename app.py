@@ -1,18 +1,23 @@
 from flask import Flask, render_template, request, redirect, url_for, flash, session, jsonify
+from flask_cors import CORS
 from flask_bcrypt import Bcrypt
 from pymongo import MongoClient
 from dotenv import load_dotenv
 from bson.objectid import ObjectId
 from sklearn.feature_extraction.text import CountVectorizer
 import os
-import re
 import pickle
+import google.generativeai as genai
+from google.generativeai.types import HarmCategory, HarmBlockThreshold
+
+genai.configure(api_key=os.getenv("API_KEY"))
 
 load_dotenv()
 
 app = Flask(__name__)
 app.secret_key = os.getenv("SECRET_KEY")
 bcrypt = Bcrypt(app)
+CORS(app)
 
 client = MongoClient(os.getenv("MONGO_URI"))
 db = client['stress_db']
@@ -153,6 +158,37 @@ def login():
             return redirect(url_for('index'))
     
     return render_template('login.html')
+
+@app.route('/chatbot', methods=['POST'])
+def chatbot():
+    if 'username' not in session:
+        return jsonify({'error': 'Unauthorized'}), 401
+    
+    user_message = request.json.get('message', '')
+    
+    model = genai.GenerativeModel('gemini-1.5-flash')
+    
+    safety_settings = {
+        HarmCategory.HARM_CATEGORY_HARASSMENT: HarmBlockThreshold.BLOCK_NONE,
+        HarmCategory.HARM_CATEGORY_HATE_SPEECH: HarmBlockThreshold.BLOCK_NONE,
+        HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT: HarmBlockThreshold.BLOCK_NONE,
+        HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT: HarmBlockThreshold.BLOCK_NONE
+    }
+    
+    prompt = f"""You are a mental health support assistant. Provide compassionate, 
+    non-judgmental responses to help users manage stress and anxiety. Keep responses 
+    conversational and under 500 characters. If serious issues emerge, suggest 
+    professional help. Current user message: {user_message}"""
+    
+    try:
+        response = model.generate_content(
+            prompt,
+            safety_settings=safety_settings,
+            generation_config={"temperature": 0.9}
+        )
+        return jsonify({'response': response.text})
+    except Exception as e:
+        return jsonify({'response': f"Sorry, I encountered an error: {str(e)}"})
 
 @app.route('/logout')
 def logout():
